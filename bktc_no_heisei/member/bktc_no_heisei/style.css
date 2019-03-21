@@ -1,0 +1,27 @@
+@charset "utf-8";
+#bktc_no_heisei {
+  background-image: url("./img/icon.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  text-align: center;
+  height: 20em;
+  margin: 1em;
+}
+#bktc_no_heisei .icon {
+  display: none;
+}
+#bktc_no_heisei a {
+  color: #293579;
+  text-decoration: none;
+}
+#bktc_no_heisei a:hover {
+  color: #293579;
+}
+#bktc_no_heisei h1 {
+  font-size: 5em;
+}
+#bktc_no_heisei h1 small {
+  font-size: 0.4em;
+  text-align: center;
+}

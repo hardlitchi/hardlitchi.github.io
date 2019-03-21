@@ -1,0 +1,24 @@
+@charset "utf-8";
+#atm_h2 {
+  background: linear-gradient(170deg, green, lime, olive);
+  height: 20em;
+  margin: 1em;
+}
+#atm_h2 .icon {
+  height: 18em;
+}
+#atm_h2 a {
+  color: lightgray;
+}
+#atm_h2 a:hover {
+  color: lightgray;
+}
+#atm_h2 h1 {
+  font-family: cursive;
+  font-size: 5em;
+  float: right;
+}
+#atm_h2 h1 small {
+  font-size: 0.4em;
+  text-align: center;
+}
