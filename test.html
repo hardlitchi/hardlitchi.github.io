@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    <button type="button" id="mapButton">現在地</button>
+    <iframe id="map" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div id="show_result"></div>
+    <input type="text" id="keyStr" />
+    <button type="button" id="wikiButton">検索</button>
+    <iframe id="wiki" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<script>
+    var mapURLprefix = "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12963.135059892198!2d";
+    var mapURLcenter = "!3d";
+    var mapURLsufix = "!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1556062603598!5m2!1sja!2sjp";
+
+    $(function() {
+        $('#mapButton').click(function(e) {
+            //ユーザーの現在の位置情報を取得
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        });
+        $('#wikiButton').click(function(e) {
+            var wikiURL = "https://ja.wikipedia.org/wiki/";
+            wikiURL += $('#keyStr').val();
+            $('#wiki').attr('src', wikiURL);
+        });
+    });
+
+    /***** ユーザーの現在の位置情報を取得 *****/
+    function successCallback(position) {
+        var mapURL = mapURLprefix;
+        mapURL += position.coords.longitude;
+        mapURL += mapURLcenter;
+        mapURL += position.coords.latitude;
+        mapURL += mapURLsufix;
+        $('#map').attr('src', mapURL);
+    }
+
+    /***** 位置情報が取得できない場合 *****/
+    function errorCallback(error) {
+        var err_msg = "";
+        switch(error.code)
+        {
+            case 1:
+                err_msg = "位置情報の利用が許可されていません";
+                break;
+            case 2:
+                err_msg = "デバイスの位置が判定できません";
+                break;
+            case 3:
+                err_msg = "タイムアウトしました";
+                break;
+        }
+        err_msg += "<br>";
+        err_msg += error.message;
+        document.getElementById("show_result").innerHTML = err_msg;
+    }
+</script>
+</body>
+</html>
