@@ -29,6 +29,10 @@
         <button type="button" id="wikiButton">Wikipedia検索</button>
     </div>
     <iframe id="wiki" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div>
+        <button type="button" id="resetButton">リセット</button>
+    </div>
+    <iframe id="bing" src="https://www.bing.com/" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
             var mapURLprefix = "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12963.135059892198!2d";
@@ -44,6 +48,9 @@
                     var wikiURL = "https://ja.wikipedia.org/wiki/";
                     wikiURL += $('#keyStr').val();
                     $('#wiki').attr('src', wikiURL);
+                });
+                $('#resetButton').click(function(e) {
+                    $('#bing').attr('src', "https://www.bing.com/");
                 });
             });
         
