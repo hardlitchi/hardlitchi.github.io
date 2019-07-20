@@ -19,89 +19,20 @@
 		<link rel="stylesheet" href="./acordion.css">
 	</head>
 	<body style="margin: auto; max-width: 700px;">
-        <h1 id="-">納涼各種大会</h1>
-        <p>夏もいよいよ本番を迎えつつある今日この頃。皆様はいかがお過ごしでしょうか。</p>
-        <p>海水浴にお祭りに、北海道の短い夏を楽しむイベントはたくさんありますが、そこに新たなラインナップを加えてみませんか？</p>
-        <p>納涼各種大会。無骨な字面からは想像つかない、ささやかな競技種目をご用意してお待ちしております。</p>
-        <p>動くばかりが競技じゃない。ちょっとした特技で競い合ってみませんか？</p>
-        <h3 id="-">プログラム</h3>
-        <div id="app">
-            <v-app id="inspire">
-                <v-layout row justify-center>
-                    <v-flex>
-                        <shumoku-item v-for="(shumoku, index) in shumokuList" v-bind:shumoku="shumoku" v-bind:no="index"></shumoku-item>
-                    </v-flex>
-                </v-layout>
-            </v-app>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script>
-            var ShumokuItem = {
-                props: ["no", "shumoku"],
-                template:`
-                        <v-card>
-                            <v-card-title primary-title>
-                                <div>
-                                    <span class="grey--text">{{shumoku.category}}</span><br>
-                                    <h3 class="headline mb-0" v-html="shumoku.title"></h3>
-                                    <div v-html="shumoku.description"></div>
-                                </div>
-                            </v-card-title>
-                      
-                            <v-card-actions>
-                                <div class="accbox">
-                                    <label v-bind:for="'label'+no+1">ルール</label>
-                                    <input type="checkbox" v-bind:id="'label'+no+1" class="cssacc" />
-                                    <div class="accshow">
-                                        <p v-html="shumoku.rule"></p>
-                                    </div>
-                                </div>
-                            </v-card-actions>
-                        </v-card>
-                    `
-            }
-            new Vue({
-                el: '#app',
-                data: {
-                    shumokuList: [
-                        {category:'メイン',title:'オープニング',description:'開会のあいさつとかそれっぽいこと。',rule:'特になし。'},
-                        {category:'メイン',title:'大喜利大会',description:'提示されたお題で大喜利。<br>IPPON風に',rule:'笑点と大体一緒。<ol><li>師匠がお題を出す。</li><li>回答者が考える。</li><li>回答を思いついた回答者が手を挙げる。</li><li>師匠が回答者を指名する。</li><li>回答者が回答する。</li><li>師匠が面白いと思ったら回答者をほめる。</li><li>一番多く褒められた人が勝ち。</li></ol>'},
-                        {category:'変わり種',title:'きき茶大会',description:'数種類のお茶を飲み比べ、銘柄(メーカー)を言い当てる',rule:'飲んだお茶の銘柄(メーカー)を当てると得点。<ol><li>数種類のお茶を用意する。</li><li>スタッフが別室でお茶を特定の容器に入れる。</li><li>どの容器にどの銘柄(メーカー)のお茶を入れたか、スタッフは控えておく。</li><li>回答者に容器を提示する。</li><li>回答者は容器のお茶を飲み比べる。</li><li>回答者は、それぞれの容器に入っているお茶がどの銘柄(メーカー)のお茶か答える。</li><li>正解数を得点とする。</li><li>たくさん正解した人が勝ち。</li></ol>'},
-                        {category:'変わり種',title:'ジュースでカクテルつくって<br>何と何が何対何で入ってるかあてる大会',description:'おいしくできたら万々歳。',rule:'なんかよくわからない飲み物を飲んで、どのように生みだされたか当てると優勝。'},
-                        {category:'変わり種',title:'ペンのキャップ演奏大会',description:'刻め！ビート！<br>奏でろ！リズム！',rule:'<ol><li>複数のペンを用意する。</li><li>いい感じの音楽を奏でる。<small>※セッションは自由。</small></li><li>いい感じだった人たちをほめたたえる。</li></ol>'},
-                        {category:'変わり種',title:'かくし芸大会',description:'「こんなことできたんだね、すごーい。」',rule:'特技とか、実はできちゃうこんなことを披露して、たくさんほめてもらうとうれしいね。'},
-                        {category:'変わり種',title:'誰も知らなさそうな市町村名がどこの都道府県にあるかあてる大会',description:'この町どーこだ？',rule:'No Data.'},
-                        {category:'変わり種',title:'誰も知らなさそうな地名がどの国にあるかあてる大会',description:'これってどーこだ？',rule:'No Data.'},
-                        {category:'トーク',title:'みんなのあるある獲得大会',description:'鋭いあるあるで共感を狙え！',rule:'<ol><li>あるあるな出来事を思い浮かべる。</li><li>手を挙げて発表する。</li><li>発表を聞いた人は、共感できるかを考える。</li><li>胸に響いたら「あるある」と宣言する。</li><li>より多くの「あるある」を獲得するとうれしい。</li></ol>'},
-                        {category:'トーク',title:'クイズ、私の〇〇',description:'対象者が思い浮かべた夏の果物、とかを当ててみるようなあれ。',rule:'<ol><li>代表者を選出する。</li><li>お題を提示する。</li><li>代表者はお題から連想するものを記入する。</li><li>回答者たちは、代表者が思い浮かべたであろう物を記入する。</li><li>回答者は、代表者と答えが一致していれば得点。</li><li>代表者は、一致する回答が得られなかった場合に得点。</li></ol>'},
-                        {category:'トーク',title:'下ネタ大会',description:'お好きでしょ。',rule:'出せる限りの下ネタトークをする。'},
-                        {category:'ボドゲ',title:'ぐりとぐらかるた大会',description:'かるたをやろう。',rule:'かるたをやろう。'},
-                        {category:'ボドゲ',title:'なんじゃもんじゃ大会',description:'なんじゃもんじゃをやろう。',rule:'なんじゃもんじゃをやろう。'},
-                        {category:'ボドゲ',title:'ワードウルフ',description:'<a href="https://gbhw.jp/wordwolf/" target="_blank">ワードウルフ</a>をやろう。',rule:'<a href="https://gbhw.jp/wordwolf/" target="_blank">ワードウルフ</a>をやろう。'},
-                        {category:'音',title:'これなんの音でしょうクイズ大会',description:'この<ruby><rb>音</rb><rt>ね</rt></ruby>何の<ruby><rb>音</rb><rt>ね</rt></ruby>、気になる<ruby><rb>音</rb><rt>ね</rt></ruby>',rule:'<ol><li>色々な音を用意する。</li><li>ランダムに音を鳴らす。</li><li>なんの音だったか当てる。</li></ol>'},
-                        {category:'音',title:'イントロクイズ大会',description:'イントロクイズをやろう。',rule:'イントロクイズをやろう。'},
-                        {category:'体',title:'ペットボトルを立たせる大会',description:'Let\'s ペットボトルチャレンジ',rule:'中途半端に中身が入ったペットボトルを回転させながら投げて立たせよう。'},
-                        {category:'体',title:'ジップザップ',description:'ジップザップゲームをやろう。',rule:'ジップザップゲームをやろう。'},
-                        {category:'体',title:'目をつぶってピッタリ1分あてる大会',description:'人間ストップウォッチ',rule:'1分に近いタイミングを当てられたらすごい。'},
-                        {category:'絵',title:'利き手じゃない方で絵画or達筆選手権',description:'画伯の理解者',rule:'<ol><li>利き手じゃない方の手でで絵を描く。</li><li>何の絵を描いたか、複数人の回答者に一斉に答えてもらう。</li><li>正解者の数、得点。</li></ol>'},
-                        {category:'強い',title:'初心者ラップ大会',description:'エンディング種目',rule:'よりフロアをアゲたラッパーが勝利。'}
-                    ]
-                },
-                components: {
-                    'shumoku-item': ShumokuItem
-                },
-                methods: {
-                    filterCategory: function(target) {
-                        return this.shumokuList.filter(function(item) {
-                            return item.category == target
-                        })
-                    }
-                }
-            })
-        </script>
-    </body>
+		<h1>Test -Landing-</h1>
+		<h3>プログラム</h3>
+		<div id="app">
+			<v-app id="inspire">
+				<v-layout row justify-center>
+					<v-flex>
+					</v-flex>
+				</v-layout>
+			</v-app>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
 </html>
