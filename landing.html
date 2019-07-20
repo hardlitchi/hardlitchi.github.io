@@ -21,6 +21,16 @@
 	<body style="margin: auto; max-width: 700px;">
 		<div id="app">
 			<v-app id="inspire">
+				<v-toolbar>
+					<v-toolbar-side-icon></v-toolbar-side-icon>
+					<v-toolbar-title>Title</v-toolbar-title>
+					<v-spacer></v-spacer>
+					<v-toolbar-items class="hidden-sm-and-down">
+						<v-btn flat>Link One</v-btn>
+						<v-btn flat>Link Two</v-btn>
+						<v-btn flat>Link Three</v-btn>
+					</v-toolbar-items>
+				</v-toolbar>
 				<v-navigation-drawer permanent>
 					<v-toolbar flat>
 						<v-list>
@@ -43,16 +53,6 @@
 						</v-list-tile>
 					</v-list>
 				</v-navigation-drawer>
-				<v-toolbar>
-					<v-toolbar-side-icon></v-toolbar-side-icon>
-					<v-toolbar-title>Title</v-toolbar-title>
-					<v-spacer></v-spacer>
-					<v-toolbar-items class="hidden-sm-and-down">
-						<v-btn flat>Link One</v-btn>
-						<v-btn flat>Link Two</v-btn>
-						<v-btn flat>Link Three</v-btn>
-					</v-toolbar-items>
-				</v-toolbar>
 				<v-content>
 					<v-container fluid>
 						<h1>Test -Landing-</h1>
