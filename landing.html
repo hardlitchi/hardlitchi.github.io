@@ -81,7 +81,12 @@
 				el: '#app',
 				data () {
 					return {
-						dialog: false
+						dialog: false,
+						items: [
+							{ title: 'Home', icon: 'dashboard' },
+							{ title: 'About', icon: 'question_answer' }
+						],
+						right: null
 					}
 				}
 			});
