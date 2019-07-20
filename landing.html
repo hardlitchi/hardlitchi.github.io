@@ -21,18 +21,25 @@
 	<body style="margin: auto; max-width: 700px;">
 		<h1>Test -Landing-</h1>
 		<div id="app">
-			<v-app id="inspire">
+			<v-app>
+				<v-navigation-drawer app></v-navigation-drawer>
+				<v-toolbar app></v-toolbar>
+				<v-content>
+					<v-container fluid>
+						<router-view></router-view>
+					</v-container>
+				</v-content>
 				<v-content>
 					<v-container>Hello world</v-container>
+					<v-dialog v-model="dialog">
+						<v-card>...</v-card>
+					</v-dialog>
+					<v-btn @click.stop="dialog = true">
+						Open Dialog
+					</v-btn>
 				</v-content>
+				<v-footer app></v-footer>
 			</v-app>
-			<v-dialog v-model="dialog">
-				<v-card>...</v-card>
-			</v-dialog>
-
-			<v-btn @click.stop="dialog = true">
-				Open Dialog
-			</v-btn>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
