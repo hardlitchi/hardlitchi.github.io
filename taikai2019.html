@@ -19,7 +19,7 @@
         <p>動くばかりが競技じゃない。ちょっとした特技で競い合ってみませんか？</p>
         <h3 id="-">プログラム</h3>
         <div id="app">
-            <v-app id="inspire">
+            <v-app id="inspire" :dark="false">
                 <v-layout row justify-center>
                     <v-flex>
                         <shumoku-item v-for="(shumoku, index) in shumokuList" v-bind:shumoku="shumoku" v-bind:no="index"></shumoku-item>
